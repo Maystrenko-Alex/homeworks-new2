@@ -51,10 +51,11 @@ const GreetingContainer: React.FC<GreetingContainerPropsType> = ({
     const [error, setError] = useState<boolean>(false) // need to fix any
 
     const setNameCallback = (e: ChangeEvent<HTMLInputElement>) => { // need to fix any
-       const currentText = e.currentTarget.value.trim();
+       const currentText = e.currentTarget.value;
         if (currentText) {
             setName(currentText)
             setError(false)
+            console.log(currentText)
         } else {
             setError(true)
             setName('')
@@ -64,7 +65,9 @@ const GreetingContainer: React.FC<GreetingContainerPropsType> = ({
         // error && setError('')
     }
     const addUser = () => {
-        pureAddUser(name, setError, setName, addUserCallback)
+        if (name.trim()) {
+            pureAddUser(name, setError, setName, addUserCallback)
+        }
     }
 
     const onBlur = () => {
