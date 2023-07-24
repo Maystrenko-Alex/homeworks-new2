@@ -75,7 +75,11 @@ const GreetingContainer: React.FC<GreetingContainerPropsType> = ({
     }
 
     const onEnter = (e: any) => {
-        pureOnEnter(e, addUser)
+        if (name.trim()) {
+            pureOnEnter(e, addUser)
+        } else {
+            setError(true)
+        }
     }
 
     const totalUsers = users.length // need to fix
