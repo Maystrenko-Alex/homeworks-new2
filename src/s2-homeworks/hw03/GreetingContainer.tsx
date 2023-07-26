@@ -55,7 +55,6 @@ const GreetingContainer: React.FC<GreetingContainerPropsType> = ({
         if (currentText) {
             setName(currentText)
             setError(false)
-            console.log(currentText)
         } else {
             setError(true)
             setName('')
